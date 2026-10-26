@@ -1,0 +1,380 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elderly Care: A Guide to Healthy Aging</title>
+    <!-- Google Fonts for professional medical typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #0B2545;
+            --secondary-blue: #134074;
+            --light-blue: #8DA9C4;
+            --ice-blue: #EEF4F8;
+            --text-dark: #1C2541;
+            --text-light: #FFFFFF;
+            --accent-medical: #2A9D8F;
+            --border-color: #D3E0EA;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #F9FBFC;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-navy);
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: var(--primary-navy);
+            color: var(--text-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--light-blue);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            list-style: none;
+            padding: 0.5rem 0;
+            border-radius: 4px;
+            width: 280px;
+            display: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            color: var(--text-dark);
+            padding: 0.6rem 1.5rem;
+            display: block;
+            font-size: 0.88rem;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--ice-blue);
+            color: var(--secondary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(19, 64, 116, 0.85)), url('https://unsplash.com') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-weight: 300;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 960px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                display: none; /* Fallback for mobile simplicity */
+            }
+        }
+
+        /* Main Educational Modules */
+        .main-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .educational-section {
+            margin-bottom: 4rem;
+            border-bottom: 2px solid var(--ice-blue);
+            padding-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        .educational-section:last-child {
+            border-bottom: none;
+        }
+
+        .educational-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .clinical-box {
+            background-color: var(--ice-blue);
+            border-left: 5px solid var(--secondary-blue);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .clinical-box h4 {
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .grid-two-col {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 2rem; }
+        }
+
+        .card {
+            background: #FFF;
+            border: 1px solid var(--border-color);
+            padding: 1.2rem;
+            border-radius: 6px;
+        }
+
+        .card h5 {
+            color: var(--secondary-blue);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .takeaways {
+            background-color: #E8F5E9;
+            border-left: 5px solid #2E7D32;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .takeaways h4 {
+            color: #1B5E20;
+            margin-bottom: 0.5rem;
+        }
+
+        .references-list {
+            font-size: 0.85rem;
+            color: #555;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        /* Sidebar features */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--ice-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Checklist Component */
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 0.2rem;
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--secondary-blue);
+        }
+
+        .faq-answer {
+            margin-top: 0.5rem;
+            font-size: 0.92rem;
+            color: #4A5568;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-navy);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-disclaimer {
+            background-color: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            max-width: 800px;
+            margin: 1.5rem auto 0 auto;
+            font-size: 0.8rem;
+            color: var(--light-blue);
+            border: 1px dashed var(--secondary-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation Menu -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">⚕️ Elderly Care Guide</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" style="cursor: default;">Educational Sections ▾</a>
+                        <ul class="dropdown-menu">
